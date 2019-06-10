@@ -1,0 +1,35 @@
+create or replace procedure rnagel3.generateTherms (numTherms INT)
+
+BEGIN
+
+if numTherms < 3 or numTherms > 10
+then
+	select 'ERROR: choose between 3 and 10';
+ELSE
+
+for i in 1 .. numTherms
+DO
+
+insert into rnagel3.thermostats
+
+( select max(therm_id) + 1 therm_id,
+round (1 + (rand() * 5), 2) watts
+
+
+from rnagel3.thermostats);
+
+ 
+begin
+declare randInt int;
+declare scale char(1);
+set scale = 'C';
+select rand() into randInt;
+if randInt < .5 then set scale = 'F';
+end if;
+select scale;
+end;
+
+end for;
+
+end if;
+ END;
