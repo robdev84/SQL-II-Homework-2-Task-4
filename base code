@@ -14,7 +14,7 @@ insert into rnagel3.thermostats
 
 ( select max(therm_id) + 1 therm_id,
 round (1 + (rand() * 5), 2) watts, 
-( select rand('F' or 'C'))
+( select random ('F' or 'C')) scale
 
 from rnagel3.thermostats);
 
@@ -22,4 +22,4 @@ end for;
 
 end if;
  END;
-//
+ //
