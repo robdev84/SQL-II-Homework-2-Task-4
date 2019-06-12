@@ -1,1 +1,5 @@
+call rnagel3.generateTherms(0)
+
 call rnagel3.generateTherms(5)
+
+call rnagel3.generateTherms(25)
